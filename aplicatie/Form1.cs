@@ -37,7 +37,7 @@ namespace aplicatie
             }
             else {
                 foreach (var u in listOfUsers) {
-                    if (u.userName.Equals(textBox1.Text)) {
+                    if (u.userName.Equals(textBox1.Text, StringComparison.InvariantCultureIgnoreCase)) {
                         if (u.password.Equals(textBox2.Text))
                         {
                             if (u is WindowsUser)
@@ -50,14 +50,16 @@ namespace aplicatie
                             }
                             else if (u is TemporaryUser) {
                                 MessageBox.Show("temporary user");
-                            }else
-                            {
-                                MessageBox.Show("user inexistent");
                             }
                             
                         
                         }
                     }
+                    else
+                    {
+                        MessageBox.Show("user inexistent");
+                    }
+
                 }
             }
         }
